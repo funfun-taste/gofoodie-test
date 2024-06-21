@@ -8,17 +8,19 @@ interface SkeletonProps {
 }
 
 export const Skeleton = (props: SkeletonProps): ReactElement => {
-  const { isLoading, width = 428, height = 300 } = props;
+  const { isLoading, width, height } = props;
+
+  const auto = width === 'auto' ? 'auto' : `${width}px`
 
   const inlineStyle: CSSProperties = {
-    width: `${width}px`,
+    width: auto,
     height: `${height}px`,
   };
 
   return (
     <>
       {isLoading ? (
-        <div style={inlineStyle} className={styles.LoadingMapOverlay} />
+        <div style={inlineStyle} className={styles.loadingMapOverlay} />
       ) : null}
     </>
   );

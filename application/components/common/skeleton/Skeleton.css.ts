@@ -6,8 +6,7 @@ const loading = keyframes({
   },
 });
 
-export const LoadingMapOverlay = style({
-  position: "absolute",
+export const loadingMapOverlay = style({
   width: "100%",
   height: 300,
   zIndex: 2,

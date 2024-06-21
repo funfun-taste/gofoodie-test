@@ -7,7 +7,7 @@ import React, {
 } from "react";
 
 interface FlexProps {
-  direction?: CSSProperties["flexDirection"];
+  flexDirection?: CSSProperties["flexDirection"];
   justifyContent?: CSSProperties["justifyContent"];
   alignItems?: CSSProperties["alignItems"];
   gap?: number | string;
@@ -24,7 +24,7 @@ const FlexBox = forwardRef(
   (
     {
       children,
-      direction = "row",
+      flexDirection = "row",
       justifyContent = "center",
       alignItems = "center",
       gap = 0,
@@ -40,7 +40,7 @@ const FlexBox = forwardRef(
           display: "flex",
           width,
           height,
-          flexDirection: direction,
+          flexDirection,
           justifyContent,
           alignItems,
           gap,

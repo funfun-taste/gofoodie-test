@@ -1,36 +1,28 @@
-import {CSSProperties} from "react";
 import * as styles from "@/components/common/skeleton/FeedSkeleton.css";
 import classNames from "classnames";
 import FlexBox from "@/components/common/boxes/FlexBox";
 
 interface SkeletonProps {
   isLoading: boolean;
-  width?: string | number;
-  height?: string | number;
 }
 
 export const FeedSkeleton = (props: SkeletonProps) => {
-  const { isLoading, width = 428, height = 300 } = props;
-
-  const inlineStyle: CSSProperties = {
-    width: `${width}px`,
-    height: `${height}px`,
-  };
+  const { isLoading } = props;
 
   return (
     <>
       {isLoading ? (
-        <div style={inlineStyle} className={styles.FeedSkeletonContainer}>
-          <FlexBox className={styles.FeedSkeletonTop}>
+        <div className={styles.feedSkeletonContainer}>
+          <FlexBox className={styles.feedSkeletonTop}>
             <FlexBox gap={10} justifyContent={'flex-start'}>
-              <div className={classNames(styles.FeedSkeletonOverlay, styles.Avatar)} />
-              <div className={classNames(styles.FeedSkeletonOverlay, styles.AvatarName)} />
+              <div className={classNames(styles.skeletonOverlay, styles.avatar)} />
+              <div className={classNames(styles.skeletonOverlay, styles.avatarName)} />
             </FlexBox>
-            <div className={classNames(styles.FeedSkeletonOverlay, styles.SubContent)} />
+            <div className={classNames(styles.skeletonOverlay, styles.subContent)} />
           </FlexBox>
 
           <div>
-            <div className={classNames(styles.FeedSkeletonOverlay, styles.Content)} />
+            <div className={classNames(styles.skeletonOverlay, styles.content)} />
           </div>
         </div>
       ) : null}

@@ -150,15 +150,16 @@ export const KakaoMap = (): ReactElement => {
 
   return (
     <>
-      {<Skeleton height={300} width={428} isLoading={pending} />}
-      <div
-        id={"map"}
-        ref={mapContainer}
-        style={{
-          width: "100%",
-          height: 300,
-        }}
-      />
+      {pending ? (<Skeleton height={300} isLoading={pending} />) : (
+        <div
+          id={"map"}
+          ref={mapContainer}
+          style={{
+            width: "100%",
+            height: 300,
+          }}
+        />
+      )}
     </>
   );
 };
