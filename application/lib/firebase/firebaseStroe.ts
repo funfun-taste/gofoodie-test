@@ -1,5 +1,5 @@
 import firebaseClient from './firebaseClient';
 import {getFirestore} from "firebase/firestore";
 
-const firebaseStore = getFirestore(firebaseClient);
-export default firebaseStore;
+const firestore = getFirestore(firebaseClient);
+export default firestore;
