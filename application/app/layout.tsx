@@ -4,6 +4,9 @@ import React from "react";
 import {Layout} from "@/components/Layout";
 import AuthContext from "@/context/AuthContext";
 import MetaHead from "@/components/header/MetaHead";
+import AuthProvider from "@/providers/AuthProvider";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
+import TanstackQueryProviders from "@/providers/TanstackQueryProviders";
 
 export const metadata: Metadata = {
   title: "배~고푸디? 배고플땐 고푸디 | go foodie",
@@ -17,13 +20,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-    <MetaHead />
+    <html lang="kr">
       <body>
         <AuthContext>
-          <Layout>
-            {children}
-          </Layout>
+          <TanstackQueryProviders>
+            <AuthProvider>
+              <Layout>
+                {children}
+              </Layout>
+            </AuthProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </TanstackQueryProviders>
         </AuthContext>
       </body>
     </html>

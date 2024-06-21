@@ -1,4 +1,4 @@
-import {Provider} from '@/lib/Provider';
+import {Provider} from '@/apis/lib/Provider';
 import {UserService} from "@/apis/service/user.service";
 
 export const findOneUser = async () => {

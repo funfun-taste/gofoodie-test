@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import 'reflect-metadata';
 import ORM_CONFIG from './orm.config';
-import Holder from "@/lib/Holder";
+import Holder from "@/apis/lib/Holder";
 
 let dataSource: DataSource | undefined;
 

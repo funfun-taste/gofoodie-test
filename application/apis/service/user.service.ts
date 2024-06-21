@@ -1,4 +1,4 @@
-import {InjectRepository, Service} from "@/lib/Provider";
+import {InjectRepository, Service} from "@/apis/lib/Provider";
 import {UserEntity} from "@/apis/entities/users/user.entity";
 import {Repository} from "typeorm";
 
