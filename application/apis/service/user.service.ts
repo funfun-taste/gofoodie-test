@@ -7,7 +7,6 @@ export class UserService {
   @InjectRepository(UserEntity) userRepository: Repository<UserEntity>
 
   async findUser() {
-    console.log(await this.userRepository.find({}))
-    return this.userRepository.find({});
+    return await this.userRepository.find({});
   }
 }

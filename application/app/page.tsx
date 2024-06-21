@@ -1,9 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import {findOneUser} from "@/apis/actions/user";
 
 export default async function Home() {
-  const user = await findOneUser();
   return (
     <main className={styles.main}>
       <div className={styles.description}>
