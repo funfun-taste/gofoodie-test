@@ -40,7 +40,8 @@
       "@interfaces/*": ["./interfaces/*"],
       "@assets/*": ["./assets/*"],
       "@services/*": ["./services/*"],
-      "@providers/*": ["./providers/*"]
+      "@providers/*": ["./providers/*"],
+      "@context/*": ["./context/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
