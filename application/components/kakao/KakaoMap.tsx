@@ -9,12 +9,7 @@ const kakaoAppKey = process.env.NEXT_PUBLIC_KAKAO_API_KEY;
 export const KakaoMap = (): ReactElement => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const [pending, setPending] = useState(true);
-  const [csrLoading, setCsrLoading] = useState(false);
   const { userId } = useAuth();
-
-  useEffect(() => {
-    setCsrLoading(true);
-  }, []);
 
   // const { data: mapData, isLoading } = useQuery(
   //   [queryKeys.maps.marker, userId],
@@ -103,54 +98,58 @@ export const KakaoMap = (): ReactElement => {
   };
 
   useEffect(() => {
-    if (csrLoading && typeof window !== "undefined") {
-      setPending(true);
+    setPending(true);
 
-      const script = document.createElement("script");
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoAppKey}&autoload=false`;
-      script.type = "text/javascript";
-      script.async = true;
-      document.head.appendChild(script);
+    const script = document.createElement("script");
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoAppKey}&autoload=false`;
+    script.type = "text/javascript";
+    script.async = true;
+    document.head.appendChild(script);
 
-      script.onload = async () => {
-        const kakao: any = (window as any).kakao;
-        kakao.maps.load(() => {
-          const mapElement = document.getElementById("map");
+    script.onload = async () => {
+      const kakao: any = (window as any).kakao;
 
-          navigator.geolocation.getCurrentPosition(function (position) {
-            const lat = position.coords.latitude, // 위도
-              lon = position.coords.longitude; // 경도
-            const options = {
-              center: new kakao.maps.LatLng(lat, lon),
-              level: 7,
-            };
-            const map = new kakao.maps.Map(mapElement, options);
-            map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC); // 교통 정보 삭제
-            const locPosition = new kakao.maps.LatLng(lat, lon);
+      kakao.maps.load(() => {
+        const mapElement = document.getElementById("map");
+        navigator.geolocation.getCurrentPosition(function (position) {
+          const lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+          const options = {
+            center: new kakao.maps.LatLng(lat, lon),
+            level: 7,
+          };
+          const map = new kakao.maps.Map(mapElement, options);
+          map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC); // 교통 정보 삭제
+          const locPosition = new kakao.maps.LatLng(lat, lon);
 
-            if (!!mapData) drawMarker(kakao, map);
-
-            setPending(false);
-            map.setCenter(locPosition);
-          });
+          // if (!!mapData) drawMarker(kakao, map);
+          drawMarker(kakao, map);
+          setPending(false);
+          map.setCenter(locPosition);
         });
-      };
-    }
-
+      });
+    };
+    setPending(false);
     return () => {
       const scripts = document.head.getElementsByTagName("script");
       for (let i = 0; i < scripts.length; i++) {
         const script = scripts[i];
-        if (script.parentNode && script.src && script.src.includes("dapi.kakao.com")) {
+        if (
+          script.parentNode &&
+          script.src &&
+          script.src.includes("dapi.kakao.com")
+        ) {
           script.parentNode.removeChild(script);
         }
       }
     };
-  }, [mapContainer, csrLoading]);
+  }, [mapContainer]);
 
   return (
     <>
-      {pending ? (<Skeleton height={300} isLoading={pending} />) : (
+      {pending ? (
+        <Skeleton height={300} isLoading={pending} />
+      ) : (
         <div
           id={"map"}
           ref={mapContainer}
