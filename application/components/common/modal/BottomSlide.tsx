@@ -3,7 +3,7 @@
 import {AnimatePresence, motion,} from 'framer-motion';
 import React, {ReactElement} from 'react';
 import {ModalProps} from "./ModalHandler";
-import useModalHook from "@/hooks/useModalHook";
+import useModalHook from "@hooks/useModalHook";
 import * as styles from './BottomSlide.css';
 
 

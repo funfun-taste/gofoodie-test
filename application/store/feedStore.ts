@@ -1,4 +1,4 @@
-import {FeedItem} from "@/interfaces/feeds/feed.post";
+import {FeedItem} from "@interfaces/feeds/feed.post";
 import {create} from "zustand";
 import {combine, devtools} from "zustand/middleware";
 

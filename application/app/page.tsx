@@ -1,29 +1,18 @@
-import {KakaoMap} from "@/components/kakao/KakaoMap";
-import * as styles from './page.css';
-import {FeedSkeleton} from "@/components/common/skeleton/FeedSkeleton";
-import {MyFeedSkeleton} from "@/components/common/skeleton/MyFeedSkeleton";
-import {HorizontalBar} from "@/components/navigation/HorizontalBar";
-import FlexBox from "@/components/common/boxes/FlexBox";
-import {AvatarCardSkeleton} from "@/components/common/skeleton/AvatarCardSkeleton";
-
+import { KakaoMap } from "@components/kakao/KakaoMap";
+import * as styles from "./page.css";
+import { FeedSkeleton } from "@components/common/skeleton/FeedSkeleton";
+import { MyFeedSkeleton } from "@components/common/skeleton/MyFeedSkeleton";
+import { HorizontalBar } from "@components/navigation/HorizontalBar";
+import FlexBox from "@components/common/boxes/FlexBox";
+import { AvatarCardSkeleton } from "@components/common/skeleton/AvatarCardSkeleton";
+import { RecentFeed } from "@components/feeds/RecentFeed";
 
 export default async function Home() {
   return (
     <div className={styles.homeContainerLayout}>
       <KakaoMap />
-      <HorizontalBar>
-        <div>
-          <FlexBox gap={12}>
-            <MyFeedSkeleton isLoading={true} />
-            <MyFeedSkeleton isLoading={true} />
-            <MyFeedSkeleton isLoading={true} />
-            <MyFeedSkeleton isLoading={true} />
-            <MyFeedSkeleton isLoading={true} />
-            <MyFeedSkeleton isLoading={true} />
-            <MyFeedSkeleton isLoading={true} />
-          </FlexBox>
-        </div>
-      </HorizontalBar>
+
+      <RecentFeed />
 
       <HorizontalBar>
         <div>
@@ -39,14 +28,13 @@ export default async function Home() {
       </HorizontalBar>
 
       <div>
-        <FlexBox flexDirection={'column'}>
+        <FlexBox flexDirection={"column"}>
           <FeedSkeleton isLoading={true} />
           <FeedSkeleton isLoading={true} />
           <FeedSkeleton isLoading={true} />
           <FeedSkeleton isLoading={true} />
           <FeedSkeleton isLoading={true} />
         </FlexBox>
-
       </div>
     </div>
   );

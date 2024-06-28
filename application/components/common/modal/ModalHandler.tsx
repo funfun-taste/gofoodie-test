@@ -3,9 +3,9 @@
 import React, {PropsWithChildren, ReactElement, ReactNode, useEffect, useRef, useState} from "react";
 import ReactDOM from "react-dom";
 import {BottomSlideModal} from "./BottomSlide";
-import useModalStore, {ModalType} from "@/store/modalStore";
+import useModalStore, {ModalType} from "@store/modalStore";
 import * as styles from './BottomSlide.css';
-import useModalHook from "@/hooks/useModalHook";
+import useModalHook from "@hooks/useModalHook";
 
 type Modal = PropsWithChildren;
 

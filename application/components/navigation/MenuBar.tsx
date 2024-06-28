@@ -5,7 +5,7 @@ import * as styles from "./MenuBar.css";
 import {RiHome5Line, RiMessage3Line, RiPencilFill, RiUserLine,} from "react-icons/ri";
 import {usePathname, useRouter} from 'next/navigation';
 import {CiViewList} from "react-icons/ci";
-import useModalStore, {ModalType} from "@/store/modalStore";
+import useModalStore, {ModalType} from "@store/modalStore";
 import {useSession} from "next-auth/react";
 
 

@@ -1,6 +1,6 @@
 import { ReactElement} from "react";
 import * as styles from './MyFeedSkeleton.css';
-import FlexBox from "@/components/common/boxes/FlexBox";
+import FlexBox from "@components/common/boxes/FlexBox";
 import classNames from "classnames";
 
 interface SkeletonProps {

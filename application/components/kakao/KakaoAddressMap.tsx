@@ -1,9 +1,9 @@
 "use client";
 
 import { ReactElement, useEffect, useRef, useState } from "react";
-import useFeedStore from "@/store/feedStore";
-import { AddressState } from "@/interfaces/feeds/feed.post";
-import { Skeleton } from "@/components/common/skeleton/Skeleton";
+import useFeedStore from "@store/feedStore";
+import { AddressState } from "@interfaces/feeds/feed.post";
+import { Skeleton } from "@components/common/skeleton/Skeleton";
 
 const kakaoAppKey = process.env.NEXT_PUBLIC_KAKAO_API_KEY;
 

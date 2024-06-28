@@ -1,6 +1,6 @@
-import * as styles from "@/components/common/skeleton/FeedSkeleton.css";
+import * as styles from "@components/common/skeleton/FeedSkeleton.css";
 import classNames from "classnames";
-import FlexBox from "@/components/common/boxes/FlexBox";
+import FlexBox from "@components/common/boxes/FlexBox";
 
 interface SkeletonProps {
   isLoading: boolean;
