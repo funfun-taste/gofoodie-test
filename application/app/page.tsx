@@ -1,11 +1,9 @@
 import { KakaoMap } from "@components/kakao/KakaoMap";
 import * as styles from "./page.css";
 import { FeedSkeleton } from "@components/common/skeleton/FeedSkeleton";
-import { MyFeedSkeleton } from "@components/common/skeleton/MyFeedSkeleton";
-import { HorizontalBar } from "@components/navigation/HorizontalBar";
 import FlexBox from "@components/common/boxes/FlexBox";
-import { AvatarCardSkeleton } from "@components/common/skeleton/AvatarCardSkeleton";
 import { RecentFeed } from "@components/feeds/RecentFeed";
+import { ReommendUser } from "@components/users/RecommendUser";
 
 export default async function Home() {
   return (
@@ -14,18 +12,7 @@ export default async function Home() {
 
       <RecentFeed />
 
-      <HorizontalBar>
-        <div>
-          <FlexBox gap={12}>
-            <AvatarCardSkeleton isLoading={true} />
-            <AvatarCardSkeleton isLoading={true} />
-            <AvatarCardSkeleton isLoading={true} />
-            <AvatarCardSkeleton isLoading={true} />
-            <AvatarCardSkeleton isLoading={true} />
-            <AvatarCardSkeleton isLoading={true} />
-          </FlexBox>
-        </div>
-      </HorizontalBar>
+      <ReommendUser />
 
       <div>
         <FlexBox flexDirection={"column"}>
