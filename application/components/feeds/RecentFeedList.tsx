@@ -1,5 +1,3 @@
-"use client";
-
 import { ReactElement } from "react";
 import FlexBox from "@components/common/boxes/FlexBox";
 import { MyFeedSkeleton } from "@components/common/skeleton/MyFeedSkeleton";
@@ -23,9 +21,6 @@ export const RecentFeedList = ({
           <MyFeedSkeleton isLoading={true} />
           <MyFeedSkeleton isLoading={true} />
           <MyFeedSkeleton isLoading={true} />
-          <MyFeedSkeleton isLoading={true} />
-          <MyFeedSkeleton isLoading={true} />
-          <MyFeedSkeleton isLoading={true} />
         </FlexBox>
       </div>
     );
@@ -33,11 +28,19 @@ export const RecentFeedList = ({
   return (
     <div>
       <FlexBox gap={12}>
-        {recentFeedList.map((recentFeed) => (
-          <Link href={`/feeds/${recentFeed.id}`} key={recentFeed.id}>
-            <RecentFeedCard recentFeed={recentFeed} />
-          </Link>
-        ))}
+        {recentFeedList.length === 0 ? (
+          <div>
+            <p>최근 작성한 여행 기록이 없습니다.</p>
+          </div>
+        ) : (
+          <>
+            {recentFeedList.map((recentFeed) => (
+              <Link href={`/feeds/${recentFeed.id}`} key={recentFeed.id}>
+                <RecentFeedCard recentFeed={recentFeed} />
+              </Link>
+            ))}
+          </>
+        )}
       </FlexBox>
     </div>
   );

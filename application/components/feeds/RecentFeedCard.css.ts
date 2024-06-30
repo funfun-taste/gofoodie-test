@@ -1,7 +1,7 @@
 import { vars } from "@styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
-export const thumbnailCardLayout = style({
+export const recentFeedCardLayout = style({
   width: 210,
   height: 220,
   backgroundColor: vars.colors.white000,
@@ -11,7 +11,7 @@ export const thumbnailCardLayout = style({
   boxShadow: "0px 2px 2px 1px rgb(239 239 239)",
 });
 
-export const thumbnailImageBox = style({
+export const recentFeedThumbnailImageBox = style({
   width: "100%",
   display: "flex",
   justifyContent: "center",

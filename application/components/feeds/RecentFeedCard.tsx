@@ -27,10 +27,10 @@ export const RecentFeedCard = ({
   const { thumbnail, content, shop } = recentFeed;
 
   return (
-    <article className={styles.thumbnailCardLayout}>
+    <article className={styles.recentFeedCardLayout}>
       <FlexBox gap={8} justifyContent={"flex-start"}>
         {thumbnail && (
-          <div className={styles.thumbnailImageBox}>
+          <div className={styles.recentFeedThumbnailImageBox}>
             <Image
               className={styles.thumbnailImage}
               src={thumbnail}
