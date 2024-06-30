@@ -157,7 +157,11 @@ export const KakaoAddressMap = (): ReactElement => {
       const scripts = document.head.getElementsByTagName("script");
       for (let i = 0; i < scripts.length; i++) {
         const script = scripts[i];
-        if (script.parentNode && script.src && script.src.includes("dapi.kakao.com")) {
+        if (
+          script.parentNode &&
+          script.src &&
+          script.src.includes("dapi.kakao.com")
+        ) {
           script.parentNode.removeChild(script);
         }
       }

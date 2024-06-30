@@ -1,8 +1,8 @@
 "use client";
 
 import { ReactElement, useEffect, useRef, useState } from "react";
-import { Skeleton } from "@/components/common/skeleton/Skeleton";
-import { useAuth } from "@/providers/AuthProvider";
+import { Skeleton } from "@components/common/skeleton/Skeleton";
+import { useAuth } from "@providers/AuthProvider";
 
 const kakaoAppKey = process.env.NEXT_PUBLIC_KAKAO_API_KEY;
 

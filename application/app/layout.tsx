@@ -6,6 +6,7 @@ import AuthContext from "@context/AuthContext";
 import AuthProvider from "@providers/AuthProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import TanstackQueryProviders from "@providers/TanstackQueryProviders";
+import { mongoConnection } from "@apis/lib/database";
 
 export const metadata: Metadata = {
   title: "배~고푸디? 배고플땐 고푸디 | go foodie",
@@ -19,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  mongoConnection();
   return (
     <html lang="kr">
       <body>
