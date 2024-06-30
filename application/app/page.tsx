@@ -5,6 +5,7 @@ import FlexBox from "@components/common/boxes/FlexBox";
 import { RecentFeed } from "@components/feeds/RecentFeed";
 import { ReommendUser } from "@components/users/RecommendUser";
 import { RegionFilter } from "@components/feeds/RegionFilter";
+import { FeedHome } from "@components/feeds/FeedHome";
 
 export default async function Home() {
   return (
@@ -17,15 +18,7 @@ export default async function Home() {
 
       <RegionFilter />
 
-      <div>
-        <FlexBox flexDirection={"column"}>
-          <FeedSkeleton isLoading={true} />
-          <FeedSkeleton isLoading={true} />
-          <FeedSkeleton isLoading={true} />
-          <FeedSkeleton isLoading={true} />
-          <FeedSkeleton isLoading={true} />
-        </FlexBox>
-      </div>
+      <FeedHome />
     </div>
   );
 }
